@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Quick start &mdash; liblobby 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="liblobby 0.1 documentation" href="index.html" />
+    <link rel="next" title="Classes" href="classes.html" />
+    <link rel="prev" title="Welcome to liblobby’s documentation!" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="classes.html" title="Classes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to liblobby’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">liblobby 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="quick-start">
+<h1>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="preparation">
+<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<p>Before installing the library we need to ensure we have a usable environment. First you should check if Spring settings allow for TCP connections (usually configured in <em>.springrc</em> on Linux or <em>springsettings.cfg</em> on Windows). The file should contain the following line: <tt class="docutils literal"><span class="pre">TCPAllowConnect</span> <span class="pre">=</span> <span class="pre">server:port</span></tt>, which is probably going to be something like this if you want to connect to the official server: <tt class="docutils literal"><span class="pre">TCPAllowConnect</span> <span class="pre">=</span> <span class="pre">springrts.com:8200</span></tt>.</p>
+<p>Next you should check if your <em>system.lua</em> file (located in the LuaUI/ folder) contains the socket=socket line. Add it if it&#8217;s not there.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>To use liblobby first get it from the official <a class="reference external" href="https://github.com/gajop/liblobby">repository</a> with git: <tt class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/gajop/liblobby.git</span></tt>.</p>
+<p>Put the downloaded liblobby folder in your project&#8217;s /libs folder (create it if you don&#8217;t have it).</p>
+<p>Copy the api_lobby.lua file to your LuaUI/widgets folder. On next restart of Spring you should see it available in the widget list (F11).</p>
+<p>The library should then be available in WG.LibLobby. You can verify this by putting the following code in your widget&#8217;s initialization, which should print &#8220;LibLobby is available&#8221; if everything is properly configured:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span class="k">function</span> <span class="nf">widget</span><span class="p">:</span><span class="n">Initialize</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">WG</span><span class="p">.</span><span class="n">LibLobby</span> <span class="k">then</span>
+        <span class="n">widgetHandler</span><span class="p">:</span><span class="n">RemoveWidget</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+    <span class="k">else</span>
+        <span class="n">Spring</span><span class="p">.</span><span class="n">Echo</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">LibLobby is available&quot;</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Using the library involves calling methods of the <a class="reference internal" href="wrapper.html#wrapper"><em>Wrapper</em></a> class, which is provided by the object lobby:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span class="n">lobby</span> <span class="o">=</span> <span class="n">WG</span><span class="p">.</span><span class="n">LibLobby</span><span class="p">.</span><span class="n">lobby</span>
+</pre></div>
+</div>
+<p>Usually you will first want to connect to the lobby server:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span class="n">lobby</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">springrts.com&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">8200&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Before logging in you should probably verify that a connection has been successfully made. You can do this by adding an <em>OnTASServer</em> listener, that gets invoked when the connection is established:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span class="n">lobby</span><span class="p">:</span><span class="n">AddListener</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">OnTASServer&quot;</span><span class="p">,</span>
+    <span class="k">function</span><span class="p">(</span><span class="n">listener</span><span class="p">)</span>
+        <span class="c1">-- connection happened we can now login</span>
+        <span class="n">lobby</span><span class="p">:</span><span class="n">Login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="p">)</span>
+<span class="n">lobby</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">springrts.com&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">8200&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can also verify if we have been connected successfully by listening to the <em>OnAccepted</em> event:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span class="n">lobby</span><span class="p">:</span><span class="n">AddListener</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">OnTASServer&quot;</span><span class="p">,</span>
+    <span class="k">function</span><span class="p">(</span><span class="n">listener</span><span class="p">)</span>
+        <span class="n">lobby</span><span class="p">:</span><span class="n">AddListener</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">OnAccepted&quot;</span><span class="p">,</span>
+            <span class="k">function</span><span class="p">(</span><span class="n">listener</span><span class="p">)</span>
+                <span class="c1">-- login has been successful</span>
+            <span class="k">end</span>
+        <span class="p">)</span>
+        <span class="c1">-- connection happened we can now login</span>
+        <span class="n">lobby</span><span class="p">:</span><span class="n">Login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="p">)</span>
+<span class="n">lobby</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">springrts.com&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="s">8200&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let&#8217;s say we want to handle only <strong>one</strong> message received event. We would do that by creating an <em>OnSaid</em> listener, similar like before:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span class="n">lobby</span><span class="p">:</span><span class="n">AddListener</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">OnSaid&quot;</span><span class="p">,</span>
+    <span class="k">function</span><span class="p">(</span><span class="n">listener</span><span class="p">,</span> <span class="n">chanName</span><span class="p">,</span> <span class="n">userName</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+        <span class="c1">-- do stuff with the message</span>
+    <span class="k">end</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>However, this listener would be triggered for subsequent events as well. We therefor need to unregister it. We do this by invoking the <em>RemoveListener</em> method:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span class="n">lobby</span><span class="p">:</span><span class="n">AddListener</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">OnSaid&quot;</span><span class="p">,</span>
+    <span class="k">function</span><span class="p">(</span><span class="n">listener</span><span class="p">,</span> <span class="n">chanName</span><span class="p">,</span> <span class="n">userName</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+        <span class="c1">-- do stuff with the message</span>
+        <span class="n">lobby</span><span class="p">:</span><span class="n">RemoveListener</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">OnSaid&quot;</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>We pass the listener variable (which represents our listener function and is passed as a matter of convenience), as well as the event it&#8217;s tied to.
+Alternatively if we want to remove a custom listener we would do this as follows:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span class="kd">local</span> <span class="k">function</span> <span class="nf">onPongListener</span> <span class="o">=</span> <span class="k">function</span><span class="p">(</span><span class="n">listener</span><span class="p">)</span>
+    <span class="n">Spring</span><span class="p">.</span><span class="n">Echo</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">Pong happened&quot;</span><span class="p">)</span>
+<span class="k">end</span><span class="p">)</span>
+<span class="n">lobby</span><span class="p">:</span><span class="n">AddListener</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">OnPong&quot;</span><span class="p">,</span> <span class="n">onPongListener</span><span class="p">)</span>
+
+<span class="n">lobby</span><span class="p">:</span><span class="n">AddListener</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">OnSaid&quot;</span><span class="p">,</span>
+    <span class="k">function</span><span class="p">(</span><span class="n">listener</span><span class="p">,</span> <span class="n">chanName</span><span class="p">,</span> <span class="n">userName</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+        <span class="n">lobby</span><span class="p">:</span><span class="n">RemoveListener</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">OnSaid&quot;</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+        <span class="c1">-- this will also remove the onPongListener</span>
+        <span class="n">lobby</span><span class="p">:</span><span class="n">RemoveListener</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">OnPong&quot;</span><span class="p">,</span> <span class="n">onPongListener</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>For detailed usage refer to the API and the <a class="reference external" href="https://github.com/gajop/chililobby">chililobby</a> project (Chili based lobby).
+Further information is also available in the <a class="reference external" href="http://springrts.com/dl/LobbyProtocol/">lobby protocol documentation</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Quick start</a><ul>
+<li><a class="reference internal" href="#preparation">Preparation</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to liblobby&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="classes.html"
+                        title="next chapter">Classes</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/quick_start.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="classes.html" title="Classes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to liblobby’s documentation!"
+             >previous</a> |</li>
+        <li><a href="index.html">liblobby 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Gajo Petrović.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

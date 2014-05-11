@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Interface &mdash; liblobby 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="liblobby 0.1 documentation" href="index.html" />
+    <link rel="up" title="Classes" href="classes.html" />
+    <link rel="next" title="Observable" href="observable.html" />
+    <link rel="prev" title="Wrapper" href="wrapper.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="observable.html" title="Observable"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="wrapper.html" title="Wrapper"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">liblobby 0.1 documentation</a> &raquo;</li>
+          <li><a href="classes.html" accesskey="U">Classes</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="interface">
+<span id="id1"></span><h1>Interface<a class="headerlink" href="#interface" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="Interface">
+<em class="property">class </em><tt class="descname">Interface</tt><a class="headerlink" href="#Interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>extends <a class="reference internal" href="observable.html#observable"><em>Observable</em></a></p>
+<p>Used to send and receive all lobby commands.</p>
+<dl class="method">
+<dt id="Interface.SendCustomCommand">
+<tt class="descname">SendCustomCommand</tt><big>(</big><em>command</em><big>)</big><a class="headerlink" href="#Interface.SendCustomCommand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.AddBot">
+<tt class="descname">AddBot</tt><big>(</big><em>name</em>, <em>battleStatus</em>, <em>teamColor</em>, <em>aiDll</em><big>)</big><a class="headerlink" href="#Interface.AddBot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.AddStartRect">
+<tt class="descname">AddStartRect</tt><big>(</big><em>allyNo</em>, <em>left</em>, <em>top</em>, <em>right</em>, <em>bottom</em><big>)</big><a class="headerlink" href="#Interface.AddStartRect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.ChangeEmail">
+<tt class="descname">ChangeEmail</tt><big>(</big><em>newEmail</em>, <em>userName</em><big>)</big><a class="headerlink" href="#Interface.ChangeEmail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.ChangePassword">
+<tt class="descname">ChangePassword</tt><big>(</big><em>oldPassword</em>, <em>newPassword</em><big>)</big><a class="headerlink" href="#Interface.ChangePassword" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.Channels">
+<tt class="descname">Channels</tt><big>(</big><big>)</big><a class="headerlink" href="#Interface.Channels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.ChannelTopic">
+<tt class="descname">ChannelTopic</tt><big>(</big><em>chanName</em>, <em>topic</em><big>)</big><a class="headerlink" href="#Interface.ChannelTopic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.ConfirmAgreement">
+<tt class="descname">ConfirmAgreement</tt><big>(</big><big>)</big><a class="headerlink" href="#Interface.ConfirmAgreement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.ConnectUser">
+<tt class="descname">ConnectUser</tt><big>(</big><em>userName</em>, <em>ipAndPort</em>, <em>scriptPassword</em><big>)</big><a class="headerlink" href="#Interface.ConnectUser" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.DisableUnits">
+<tt class="descname">DisableUnits</tt><big>(</big><em>...</em><big>)</big><a class="headerlink" href="#Interface.DisableUnits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.EnableAllUnits">
+<tt class="descname">EnableAllUnits</tt><big>(</big><big>)</big><a class="headerlink" href="#Interface.EnableAllUnits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.EnableUnits">
+<tt class="descname">EnableUnits</tt><big>(</big><em>...</em><big>)</big><a class="headerlink" href="#Interface.EnableUnits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.Exit">
+<tt class="descname">Exit</tt><big>(</big><em>reason</em><big>)</big><a class="headerlink" href="#Interface.Exit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.ForceAllyNo">
+<tt class="descname">ForceAllyNo</tt><big>(</big><em>userName</em>, <em>teamNo</em><big>)</big><a class="headerlink" href="#Interface.ForceAllyNo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.ForceJoinBattle">
+<tt class="descname">ForceJoinBattle</tt><big>(</big><em>userName</em>, <em>destinationBattleId</em>, <em>destinationBattlePassword</em><big>)</big><a class="headerlink" href="#Interface.ForceJoinBattle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.ForceLeaveChannel">
+<tt class="descname">ForceLeaveChannel</tt><big>(</big><em>chanName</em>, <em>userName</em>, <em>reason</em><big>)</big><a class="headerlink" href="#Interface.ForceLeaveChannel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.ForceSpectatorMode">
+<tt class="descname">ForceSpectatorMode</tt><big>(</big><em>userName</em><big>)</big><a class="headerlink" href="#Interface.ForceSpectatorMode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.ForceTeamColor">
+<tt class="descname">ForceTeamColor</tt><big>(</big><em>userName</em>, <em>color</em><big>)</big><a class="headerlink" href="#Interface.ForceTeamColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.ForceTeamNo">
+<tt class="descname">ForceTeamNo</tt><big>(</big><em>userName</em>, <em>teamNo</em><big>)</big><a class="headerlink" href="#Interface.ForceTeamNo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.GetInGameTime">
+<tt class="descname">GetInGameTime</tt><big>(</big><big>)</big><a class="headerlink" href="#Interface.GetInGameTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.Handicap">
+<tt class="descname">Handicap</tt><big>(</big><em>userName</em>, <em>value</em><big>)</big><a class="headerlink" href="#Interface.Handicap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.Join">
+<tt class="descname">Join</tt><big>(</big><em>chanName</em>, <em>key</em><big>)</big><a class="headerlink" href="#Interface.Join" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.JoinBattle">
+<tt class="descname">JoinBattle</tt><big>(</big><em>battleID</em>, <em>password</em>, <em>scriptPassword</em><big>)</big><a class="headerlink" href="#Interface.JoinBattle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.JoinBattleAccept">
+<tt class="descname">JoinBattleAccept</tt><big>(</big><em>userName</em><big>)</big><a class="headerlink" href="#Interface.JoinBattleAccept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.JoinBattleDeny">
+<tt class="descname">JoinBattleDeny</tt><big>(</big><em>userName</em>, <em>reason</em><big>)</big><a class="headerlink" href="#Interface.JoinBattleDeny" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.KickFromBattle">
+<tt class="descname">KickFromBattle</tt><big>(</big><em>userName</em><big>)</big><a class="headerlink" href="#Interface.KickFromBattle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.Leave">
+<tt class="descname">Leave</tt><big>(</big><em>chanName</em><big>)</big><a class="headerlink" href="#Interface.Leave" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.LeaveBattle">
+<tt class="descname">LeaveBattle</tt><big>(</big><big>)</big><a class="headerlink" href="#Interface.LeaveBattle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.ListCompFlags">
+<tt class="descname">ListCompFlags</tt><big>(</big><big>)</big><a class="headerlink" href="#Interface.ListCompFlags" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.Login">
+<tt class="descname">Login</tt><big>(</big><em>user</em>, <em>password</em>, <em>cpu</em>, <em>localIP</em><big>)</big><a class="headerlink" href="#Interface.Login" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.MuteList">
+<tt class="descname">MuteList</tt><big>(</big><em>chanName</em><big>)</big><a class="headerlink" href="#Interface.MuteList" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.MyBattleStatus">
+<tt class="descname">MyBattleStatus</tt><big>(</big><em>battleStatus</em>, <em>myTeamColor</em><big>)</big><a class="headerlink" href="#Interface.MyBattleStatus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.MyStatus">
+<tt class="descname">MyStatus</tt><big>(</big><em>status</em><big>)</big><a class="headerlink" href="#Interface.MyStatus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.OpenBattle">
+<tt class="descname">OpenBattle</tt><big>(</big><em>type</em>, <em>natType</em>, <em>password</em>, <em>port</em>, <em>maxPlayers</em>, <em>gameHash</em>, <em>rank</em>, <em>mapHash</em>, <em>engineName</em>, <em>engineVersion</em>, <em>map</em>, <em>title</em>, <em>gameName</em><big>)</big><a class="headerlink" href="#Interface.OpenBattle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.Ping">
+<tt class="descname">Ping</tt><big>(</big><big>)</big><a class="headerlink" href="#Interface.Ping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.RecoverAccount">
+<tt class="descname">RecoverAccount</tt><big>(</big><em>email</em>, <em>userName</em><big>)</big><a class="headerlink" href="#Interface.RecoverAccount" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.Register">
+<tt class="descname">Register</tt><big>(</big><em>userName</em>, <em>password</em>, <em>email</em><big>)</big><a class="headerlink" href="#Interface.Register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.RemoveBot">
+<tt class="descname">RemoveBot</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#Interface.RemoveBot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.RemoveScriptTags">
+<tt class="descname">RemoveScriptTags</tt><big>(</big><em>...</em><big>)</big><a class="headerlink" href="#Interface.RemoveScriptTags" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.RemoveStartRect">
+<tt class="descname">RemoveStartRect</tt><big>(</big><em>allyNo</em><big>)</big><a class="headerlink" href="#Interface.RemoveStartRect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.RenameAccount">
+<tt class="descname">RenameAccount</tt><big>(</big><em>newUsername</em><big>)</big><a class="headerlink" href="#Interface.RenameAccount" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.Ring">
+<tt class="descname">Ring</tt><big>(</big><em>userName</em><big>)</big><a class="headerlink" href="#Interface.Ring" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.Say">
+<tt class="descname">Say</tt><big>(</big><em>chanName</em>, <em>message</em><big>)</big><a class="headerlink" href="#Interface.Say" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.SayBattle">
+<tt class="descname">SayBattle</tt><big>(</big><em>message</em><big>)</big><a class="headerlink" href="#Interface.SayBattle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.SayBattleEx">
+<tt class="descname">SayBattleEx</tt><big>(</big><em>message</em><big>)</big><a class="headerlink" href="#Interface.SayBattleEx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.SayData">
+<tt class="descname">SayData</tt><big>(</big><em>chanName</em>, <em>message</em><big>)</big><a class="headerlink" href="#Interface.SayData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.SayDataBattle">
+<tt class="descname">SayDataBattle</tt><big>(</big><em>message</em><big>)</big><a class="headerlink" href="#Interface.SayDataBattle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.SayDataPrivate">
+<tt class="descname">SayDataPrivate</tt><big>(</big><em>userName</em>, <em>message</em><big>)</big><a class="headerlink" href="#Interface.SayDataPrivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.SayEx">
+<tt class="descname">SayEx</tt><big>(</big><em>chanName</em>, <em>message</em><big>)</big><a class="headerlink" href="#Interface.SayEx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.SayPrivate">
+<tt class="descname">SayPrivate</tt><big>(</big><em>userName</em>, <em>message</em><big>)</big><a class="headerlink" href="#Interface.SayPrivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.Script">
+<tt class="descname">Script</tt><big>(</big><em>line</em><big>)</big><a class="headerlink" href="#Interface.Script" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.ScriptEnd">
+<tt class="descname">ScriptEnd</tt><big>(</big><big>)</big><a class="headerlink" href="#Interface.ScriptEnd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.ScriptStart">
+<tt class="descname">ScriptStart</tt><big>(</big><big>)</big><a class="headerlink" href="#Interface.ScriptStart" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.SetScriptTags">
+<tt class="descname">SetScriptTags</tt><big>(</big><em>...</em><big>)</big><a class="headerlink" href="#Interface.SetScriptTags" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.TestLogin">
+<tt class="descname">TestLogin</tt><big>(</big><em>userName</em>, <em>password</em><big>)</big><a class="headerlink" href="#Interface.TestLogin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.UpdateBattleInfo">
+<tt class="descname">UpdateBattleInfo</tt><big>(</big><em>spectatorCount</em>, <em>locked</em>, <em>mapHash</em>, <em>mapName</em><big>)</big><a class="headerlink" href="#Interface.UpdateBattleInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Interface.UpdateBot">
+<tt class="descname">UpdateBot</tt><big>(</big><em>name</em>, <em>battleStatus</em>, <em>teamColor</em><big>)</big><a class="headerlink" href="#Interface.UpdateBot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="wrapper.html"
+                        title="previous chapter">Wrapper</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="observable.html"
+                        title="next chapter">Observable</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/interface.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="observable.html" title="Observable"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="wrapper.html" title="Wrapper"
+             >previous</a> |</li>
+        <li><a href="index.html">liblobby 0.1 documentation</a> &raquo;</li>
+          <li><a href="classes.html" >Classes</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Gajo Petrović.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
